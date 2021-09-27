@@ -556,6 +556,10 @@ ggplot(bird, aes(diet, song.duration, colour = ID)) +
 ## (Intercept)        dieth  
 ##       6.055        2.575  
 ## optimizer (nloptwrap) convergence code: 0 (OK) ; 0 optimizer warnings; 2 lme4 warnings</code></pre>
+<pre class="r"><code>anova(bird.1)</code></pre>
+<pre><code>## Type III Analysis of Variance Table with Satterthwaite&#39;s method
+##      Sum Sq Mean Sq NumDF  DenDF F value Pr(&gt;F)
+## diet 33.661  33.661     1 45.959  2.2739 0.1384</code></pre>
 <pre class="r"><code>summary(bird.1)</code></pre>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
@@ -588,10 +592,6 @@ ggplot(bird, aes(diet, song.duration, colour = ID)) +
 ## optimizer (nloptwrap) convergence code: 0 (OK)
 ## unable to evaluate scaled gradient
 ## Model failed to converge: degenerate  Hessian with 1 negative eigenvalues</code></pre>
-<pre class="r"><code>anova(bird.1)</code></pre>
-<pre><code>## Type III Analysis of Variance Table with Satterthwaite&#39;s method
-##      Sum Sq Mean Sq NumDF  DenDF F value Pr(&gt;F)
-## diet 33.661  33.661     1 45.959  2.2739 0.1384</code></pre>
 </div>
 
 
