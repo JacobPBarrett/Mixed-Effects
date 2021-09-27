@@ -185,14 +185,10 @@ bird.1 <- lmer(song.duration ~ diet + (1|diet/ID), data = bird)
 bird.1
 ```
 
-
-```{r bird: summary table}
-summary(bird.1)
-```
-
-
 ```{r bird: anova table}
 anova(bird.1)
 ```
 
-
+```{r bird: summary table}
+summary(bird.1)
+```
