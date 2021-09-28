@@ -59,7 +59,7 @@ ggplot(fish, aes(age, growth.rate, colour=individual, shape=species)) +
 
 $~$
 
-Just to take a look at some life history information for all of the fish in this dataset: 
+**Just to take a look at some life history information for all of the fish in this dataset:** 
 
 ```{r fish: summarise data by age}
 fish_means <- fish %>%
@@ -71,7 +71,7 @@ fish_means
 
 $~$
 
-Raw means by species:
+**Raw means by species:**
 
 ```{r fish: summarise data by elevation}
 fish_means_sp <- fish %>%
@@ -118,7 +118,7 @@ mixed_HML_emm_sp
 
 $~$
 
-Let's compare the raw and adjusted means: 
+**Let's compare the raw and adjusted means:**
 
 ```{r fish: species emmeans as dataframe for use in plotting}
 data_emm_sp <- as.data.frame(mixed_HML_emm_sp)
@@ -142,11 +142,13 @@ ggplot(data_emm_sp, aes(x=species, y=emmean)) +
 
 $~$
 
-No meaningful difference between the raw and model-adjusted means - given that we didn't uncover any significant effects, this makes sense!
+**No meaningful difference between the raw and model-adjusted means** - given that we didn't uncover any significant effects, this makes sense!
 
 $~$
 
 ## Example 2: Mixed-Effects Model (Nested Measures)
+
+$~$
 
 Yamada and Masayo (2016) examined changes in song characteristics of Bengalese Finches that were exposed to either a normal or high nutrition diet. 
 
@@ -171,13 +173,15 @@ ggplot(bird, aes(diet, song.duration, colour = ID)) +
   geom_point(size=3, position = position_dodge2(width=.33, preserve = "total"))+ 
   xlab ("Experimental Group (Control or High Nutrition)") +
   ylab ("Song Duration (seconds)") + 
-  labs(caption="Figure 1: Song duration for individual Bengalese Finches by experimental group.") + 
+  labs(caption="Figure 3: Song duration for individual Bengalese Finches by experimental group.") + 
   theme(plot.caption=element_text(size=11, hjust=0, margin=margin(15,0,0,0)))
 ```
 
 $~$
 
 <span style="color:black;font-size:30px">2.2 Model formation and evaluation </span>
+
+Because I was interested in the effect of diet (high nutrition or normal-control) on the song duration of the finches, I included diet as my only fixed effect and a random effect accounting for the natural variation between individuals, as well as the fact that individuals were only found in one of the treatment groups. 
 
 ```{r bird: model formulation}
 bird.1 <- lmer(song.duration ~ diet + (1|diet/ID), data = bird) 
@@ -192,3 +196,9 @@ anova(bird.1)
 ```{r bird: summary table}
 summary(bird.1)
 ```
+$~$ 
+
+**Non-significant effect of diet on song duration (ANOVA), but a significant effect from the control diet in the summary table.... Not sure how to interpret this?**
+
+$~$
+
